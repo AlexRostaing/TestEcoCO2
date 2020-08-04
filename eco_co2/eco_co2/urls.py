@@ -20,4 +20,5 @@ from tabla_co2 import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^tableCO2', views.co2_list),
+    url(r'^hourlyTable', views.co2_list_hourly),
 ]

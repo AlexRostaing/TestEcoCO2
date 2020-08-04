@@ -4,10 +4,17 @@ from django.shortcuts import render
 from .tables import CO2Table
 from .functions import *
 
-def co2_list(request):
-    data = convertToDateTime(getCO2Data())
+data = convertToDateTime(getCO2Data())
 
+def co2_list(request):
     table = CO2Table(data)
+
+    return render(request, "co2_list.html",{
+        "table": table
+    })
+
+def co2_list_hourly(request):
+    table = CO2Table(getHourlyData(data))
 
     return render(request, "co2_list.html",{
         "table": table
